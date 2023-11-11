@@ -67,7 +67,7 @@ namespace Player
 
         private void MoveForward()
         {
-            playerRb.velocity = currentMovementDirection.normalized * movementSpeed * Time.deltaTime;
+            playerRb.velocity = currentMovementDirection.normalized * movementSpeed;
         }
     }
 }
