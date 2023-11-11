@@ -45,10 +45,7 @@ namespace Player
 
         private bool Check_ValidDirection(Vector2 newDirectionInput)
         {
-            bool isValid = false;
-
-            if (newDirectionInput != Vector2.zero && !Check_DiagonalInput(newDirectionInput) && !Check_ReverseDirection(newDirectionInput))
-                isValid = true;
+            bool isValid = newDirectionInput != Vector2.zero && !Check_DiagonalInput(newDirectionInput) && !Check_ReverseDirection(newDirectionInput);
 
             return isValid;
         }
@@ -56,20 +53,14 @@ namespace Player
 
         private bool Check_DiagonalInput(Vector2 newDirectionInput)
         {
-            bool isDiagonal = false;
-
-            if (newDirectionInput.x != 0 && newDirectionInput.y != 0)
-                isDiagonal = true;
+            bool isDiagonal = newDirectionInput.x != 0 && newDirectionInput.y != 0;
 
             return isDiagonal;
         }
 
         private bool Check_ReverseDirection(Vector2 newDirectionInput)
         {
-            bool isReverseDirection = false;
-
-            if ((newDirectionInput.x != 0 && currentMovementDirection.x != 0) || (newDirectionInput.y != 0 && currentMovementDirection.y != 0))
-                isReverseDirection = true;
+            bool isReverseDirection = (newDirectionInput.x != 0 && currentMovementDirection.x != 0) || (newDirectionInput.y != 0 && currentMovementDirection.y != 0);
 
             return isReverseDirection;
         }
