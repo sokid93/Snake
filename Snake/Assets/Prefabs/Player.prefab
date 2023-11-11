@@ -242,7 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 805d7e49ee724ee40b42e7b6db4c0a36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 300
+  movementSpeed: 3
   currentMovementDirection: {x: 1, y: 0}
 --- !u!114 &3608965411185187551
 MonoBehaviour:
@@ -256,7 +256,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9c0b85d4b0ad5d4387c241df8132ddd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  headMovement: {fileID: 7474386359226343097}
   headSprite: {fileID: 8631892608815214918}
 --- !u!1 &6868342277402554025
 GameObject:
