@@ -17,13 +17,13 @@ public class Grid
 
         for(int x=0; x < height; x++) {
             for(int y = 0; y < width; y++) {
-                CreateTiles();
+                CreateTile(x,y);
             }
         }
     }
 
-    void CreateTiles()
+    void CreateTile(int x, int y)
     {
-
+        GameObject.Instantiate(new GameObject(), new Vector3(x, y, 0), Quaternion.identity);
     }
 }
