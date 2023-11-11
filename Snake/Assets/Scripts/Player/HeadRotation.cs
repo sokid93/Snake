@@ -2,17 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HeadRotation : MonoBehaviour
+namespace Player
 {
-    // Start is called before the first frame update
-    void Start()
+    public class HeadRotation : MonoBehaviour
     {
-        
-    }
+        [Header("[References]")]
+        private HeadMovement headMovement;
+        [SerializeField] private GameObject headSprite;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+
+        private void Awake()
+        {
+            GetReferences();
+        }
+        private void GetReferences()
+        {
+            headMovement = GetComponent<HeadMovement>();
+        }
+
+
+        private void Update()
+        {
+            Handle_HeadRotation();
+        }
+
+        private void Handle_HeadRotation()
+        {
+            Vector2 moveDirection = headMovement.currentMovementDirection;
+
+            float newAngle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
+            headSprite.transform.rotation = Quaternion.AngleAxis(newAngle, Vector3.forward);
+        }
     }
 }
+

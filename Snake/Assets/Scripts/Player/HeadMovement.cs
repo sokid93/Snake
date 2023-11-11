@@ -13,7 +13,7 @@ namespace Player
         [SerializeField] private float movementSpeed;
 
         [Header("[Values]")]
-        [SerializeField] private Vector2 currentMovementDirection;
+        public Vector2 currentMovementDirection;
 
 
         private void Awake()
