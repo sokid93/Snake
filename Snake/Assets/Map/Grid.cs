@@ -4,5 +4,26 @@ using UnityEngine;
 
 public class Grid
 {
+    int height;
+    int width;
+    int [,] mapArray;
 
+    public void MapConstructor(int height, int width)
+    {
+        this.height = height;
+        this.width = width;
+
+        mapArray = new int[height, width];
+
+        for(int x=0; x < height; x++) {
+            for(int y = 0; y < width; y++) {
+                CreateTiles();
+            }
+        }
+    }
+
+    void CreateTiles()
+    {
+
+    }
 }
