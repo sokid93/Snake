@@ -13,7 +13,7 @@ namespace Player
         [SerializeField] private float movementSpeed;
 
         [Header("[Values]")]
-        [SerializeField] private Vector2 movementDirectionInput;
+        [SerializeField] private Vector2 currentMovementDirection;
 
 
         private void Awake()
@@ -36,13 +36,30 @@ namespace Player
             float horizontalInput = Input.GetAxisRaw("Horizontal");
             float verticalInput = Input.GetAxisRaw("Vertical");
 
-            if(horizontalInput != 0 || verticalInput != 0)
-                movementDirectionInput = new Vector2(horizontalInput, verticalInput);
+            Vector2 newDirectionInput = new Vector2(horizontalInput, verticalInput);
+
+            if(Check_ValidInput(newDirectionInput))
+                currentMovementDirection = newDirectionInput;
         }
+
+        private bool Check_ValidInput(Vector2 newDirectionInput)
+        {
+            bool isValid = false;
+
+            if (newDirectionInput != Vector2.zero)
+            {
+                isValid = true;
+            }
+
+            return isValid;
+        }
+
+
+       
 
         private void MoveForward()
         {
-            playerRb.velocity = movementDirectionInput.normalized * movementSpeed * Time.deltaTime;
+            playerRb.velocity = currentMovementDirection.normalized * movementSpeed * Time.deltaTime;
         }
     }
 }
