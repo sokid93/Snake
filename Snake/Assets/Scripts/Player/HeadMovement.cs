@@ -46,7 +46,7 @@ namespace Player
         {
             bool isValid = false;
 
-            if (newDirectionInput != Vector2.zero)
+            if (newDirectionInput != Vector2.zero && !Check_DiagonalInput(newDirectionInput))
             {
                 isValid = true;
             }
@@ -55,7 +55,17 @@ namespace Player
         }
 
 
-       
+        private bool Check_DiagonalInput(Vector2 newDirectionInput)
+        {
+            bool isDiagonal = false;
+
+            if (newDirectionInput.x != 0 && newDirectionInput.y != 0)
+                isDiagonal = true;
+
+            return isDiagonal;
+        }
+
+
 
         private void MoveForward()
         {
