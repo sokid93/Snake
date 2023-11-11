@@ -38,18 +38,17 @@ namespace Player
 
             Vector2 newDirectionInput = new Vector2(horizontalInput, verticalInput);
 
-            if(Check_ValidInput(newDirectionInput))
+            if(Check_ValidDirection(newDirectionInput))
                 currentMovementDirection = newDirectionInput;
         }
 
-        private bool Check_ValidInput(Vector2 newDirectionInput)
+
+        private bool Check_ValidDirection(Vector2 newDirectionInput)
         {
             bool isValid = false;
 
-            if (newDirectionInput != Vector2.zero && !Check_DiagonalInput(newDirectionInput))
-            {
+            if (newDirectionInput != Vector2.zero && !Check_DiagonalInput(newDirectionInput) && !Check_ReverseDirection(newDirectionInput))
                 isValid = true;
-            }
 
             return isValid;
         }
@@ -65,7 +64,15 @@ namespace Player
             return isDiagonal;
         }
 
+        private bool Check_ReverseDirection(Vector2 newDirectionInput)
+        {
+            bool isReverseDirection = false;
 
+            if ((newDirectionInput.x != 0 && currentMovementDirection.x != 0) || (newDirectionInput.y != 0 && currentMovementDirection.y != 0))
+                isReverseDirection = true;
+
+            return isReverseDirection;
+        }
 
         private void MoveForward()
         {
