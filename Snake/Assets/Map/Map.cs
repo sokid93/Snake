@@ -27,7 +27,7 @@ public class Map : MonoBehaviour
     private void InstantiateTile(int x, int y)
     {
         var worldPosition = new Vector3(x, y, 0);
-        Instantiate(tile, worldPosition, Quaternion.identity);
+        Instantiate(tile, worldPosition, Quaternion.identity, this.transform);
     }
 
     // Update is called once per frame
