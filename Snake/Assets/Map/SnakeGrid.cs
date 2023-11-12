@@ -4,26 +4,15 @@ using UnityEngine;
 
 public class SnakeGrid
 {
-    int height;
-    int width;
-    int [,] mapArray;
+    [field: SerializeField] public int height { get; private set; }
+    [field: SerializeField] public int width { get; private set; }
+    [field: SerializeField] public int[,] mapArray { get; private set; }
 
-    public void MapConstructor(int height, int width)
+    public void MapInitialize(int height, int width)
     {
         this.height = height;
         this.width = width;
 
         mapArray = new int[height, width];
-
-        for(int x=0; x < height; x++) {
-            for(int y = 0; y < width; y++) {
-                CreateTile(x,y);
-            }
-        }
-    }
-
-    void CreateTile(int x, int y)
-    {
-        GameObject.Instantiate(new GameObject(), new Vector3(x, y, 0), Quaternion.identity);
     }
 }
