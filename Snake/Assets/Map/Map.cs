@@ -14,14 +14,15 @@ public class Map : MonoBehaviour
         {
             for(int y=0;y<grid.width; y++)
             {
-                InstantiateTile();
+                InstantiateTile(x, y);
             }
         }
     }
 
-    private void InstantiateTile()
+    private void InstantiateTile(int x, int y)
     {
-
+        var worldPosition = new Vector3(x, y, 0);
+        Instantiate(tile, worldPosition, Quaternion.identity);
     }
 
     // Update is called once per frame
