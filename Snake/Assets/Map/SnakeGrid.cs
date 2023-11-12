@@ -8,7 +8,7 @@ public class SnakeGrid
     [field: SerializeField] public int width { get; private set; }
     [field: SerializeField] public int[,] mapArray { get; private set; }
 
-    public void MapInitialize(int height, int width)
+    public void InitializeMap(int height, int width)
     {
         this.height = height;
         this.width = width;
