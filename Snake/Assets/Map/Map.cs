@@ -10,9 +10,14 @@ public class Map : MonoBehaviour
     void Start()
     {
         grid.InitializeMap(10, 10);
-        for(int x=0; x < grid.height; x++)
+        InstantiateMapTiles();
+    }
+
+    private void InstantiateMapTiles()
+    {
+        for (int x = 0; x < grid.height; x++)
         {
-            for(int y=0; y <grid.width; y++)
+            for (int y = 0; y < grid.width; y++)
             {
                 InstantiateTile(x, y);
             }
