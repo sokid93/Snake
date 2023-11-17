@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class TileState : MonoBehaviour
 {
-    // Start is called before the first frame update
+    bool isEmpty;
+
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        isEmpty = false;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        isEmpty = true;
+    }
+
+    public bool CheckIsTileEmpty()
+    {
+        return isEmpty;
     }
 }
