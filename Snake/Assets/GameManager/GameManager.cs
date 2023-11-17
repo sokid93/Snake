@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour {
 
     void Awake() 
     {
-        map = GetComponent<Map>();
+        map = FindObjectOfType<Map>();
     }
 
     private void Start()
