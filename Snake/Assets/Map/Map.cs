@@ -4,20 +4,21 @@ using UnityEngine;
 
 public class Map : MonoBehaviour
 {
-    SnakeGrid grid = new SnakeGrid();
+    public SnakeGrid grid = new SnakeGrid();
     [SerializeField] GameObject tile;
+    int verticalSize;
+    int horizontalSize;
 
     void Start()
     {
-        grid.InitializeMap(10, 10);
-        InstantiateMapTiles();
+        grid.InitializeMap(verticalSize, horizontalSize);
     }
 
-    private void InstantiateMapTiles()
+    public void InstantiateMapTiles()
     {
-        for (int x = 0; x < grid.height; x++)
+        for (int x = 0; x < verticalSize; x++)
         {
-            for (int y = 0; y < grid.width; y++)
+            for (int y = 0; y < horizontalSize; y++)
             {
                 InstantiateTile(x, y);
             }
@@ -30,9 +31,9 @@ public class Map : MonoBehaviour
         Instantiate(tile, worldPosition, Quaternion.identity, this.transform);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetMapSize(int newHeight, int newWidth)
     {
-        
+        verticalSize = newHeight;
+        horizontalSize = newWidth;
     }
 }
