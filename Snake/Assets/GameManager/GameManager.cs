@@ -5,11 +5,15 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
     
     [SerializeField, Min(0)] int mapSize;
-    int[,] _map;
     Map map;
 
-    void Awake() {
+    void Awake() 
+    {
         map = GetComponent<Map>();
+    }
+
+    private void Start()
+    {
         map.SetMapSize(mapSize, mapSize);
         map.InstantiateMapTiles();
     }
