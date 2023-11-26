@@ -6,16 +6,23 @@ namespace Player {
 		[Header("[References]")]
 		private Rigidbody2D rb;
 		protected Vector2 realPosition;
-		protected Vector2 previousPosition;
-		protected BodyPart nextBodyPart;
+		private Vector2 previousPosition;
+		private BodyPart nextBodyPart;
 
 		protected void GetReferences() {
 			rb.GetComponent<Rigidbody2D>();
 		}
-		
-		public abstract void AddBodyPart(BodyPart other);
 
-		public void MovePosition(Vector2 newPosition) {
+		protected void AddBodyPart(BodyPart other) {
+			if (nextBodyPart == null) {
+				other.MovePosition(previousPosition);
+				nextBodyPart = other;
+			} else {
+				nextBodyPart.AddBodyPart(other);
+			}
+		}
+
+		protected void MovePosition(Vector2 newPosition) {
 			if(nextBodyPart != null)
 				nextBodyPart.MovePosition(rb.position);
 

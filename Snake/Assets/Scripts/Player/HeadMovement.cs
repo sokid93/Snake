@@ -62,13 +62,6 @@ namespace Player
             realPosition += currentMovementDirection * movementSpeed * Time.deltaTime;
             MovePosition(Vector2Int.RoundToInt(realPosition));
         }
-
-        public override void AddBodyPart(BodyPart other) {
-            if(nextBodyPart == null)
-                nextBodyPart = other;
-            else
-                nextBodyPart.AddBodyPart(other);
-        }
     }
 }
 
