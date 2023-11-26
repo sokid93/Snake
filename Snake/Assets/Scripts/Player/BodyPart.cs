@@ -15,7 +15,7 @@ namespace Player {
 		
 		public abstract void AddBodyPart(BodyPart other);
 
-		protected void MovePosition(Vector2 newPosition) {
+		public void MovePosition(Vector2 newPosition) {
 			if(nextBodyPart != null)
 				nextBodyPart.MovePosition(rb.position);
 

@@ -9,9 +9,10 @@ namespace Player {
 		}
 		
 		public override void AddBodyPart(BodyPart other) {
-			if(nextBodyPart == null)
+			if (nextBodyPart == null) {
+				other.MovePosition(previousPosition);
 				nextBodyPart = other;
-			else
+			}else
 				nextBodyPart.AddBodyPart(other);
 		}
 	}
