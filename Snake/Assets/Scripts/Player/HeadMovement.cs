@@ -19,6 +19,7 @@ namespace Player
         private void Awake()
         {
             GetReferences();
+            Initialize(Vector2Int.RoundToInt(transform.position));
         }
 
         private void Update()
