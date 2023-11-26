@@ -6,10 +6,6 @@ namespace Player
 {
     public class HeadMovement : BodyPart
     {
-        [Header("[References]")]
-        private Rigidbody2D playerRb;
-        private Vector2 realPosition;
-
         [Header("[Configuration]")]
         [SerializeField] private float movementSpeed;
 
@@ -20,10 +16,6 @@ namespace Player
         private void Awake()
         {
             GetReferences();
-        }
-        private void GetReferences()
-        {
-            playerRb = GetComponent<Rigidbody2D>();
         }
 
         private void Update()
@@ -71,12 +63,11 @@ namespace Player
             MovePosition(Vector2Int.RoundToInt(realPosition));
         }
 
-        protected override void AddBodyPart(BodyPart other) {
-            nextBodyPart = other;
-        }
-
-        public override void MovePosition(Vector2 newPosition) {
-            playerRb.position = newPosition;
+        public override void AddBodyPart(BodyPart other) {
+            if(nextBodyPart == null)
+                nextBodyPart = other;
+            else
+                nextBodyPart.AddBodyPart(other);
         }
     }
 }
