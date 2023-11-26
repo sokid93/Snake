@@ -242,6 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 805d7e49ee724ee40b42e7b6db4c0a36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bodyPartPrefab: {fileID: 7826403689101111277, guid: 51f066e9f232eff48a533ef4a44fb1a9, type: 3}
   movementSpeed: 3
   currentMovementDirection: {x: 1, y: 0}
 --- !u!114 &3608965411185187551

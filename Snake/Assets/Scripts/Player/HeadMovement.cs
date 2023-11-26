@@ -6,6 +6,9 @@ namespace Player
 {
     public class HeadMovement : BodyPart
     {
+        [Header("[References]")]
+        [SerializeField] private BodyPart bodyPartPrefab;
+        
         [Header("[Configuration]")]
         [SerializeField] private float movementSpeed;
 
@@ -28,6 +31,11 @@ namespace Player
         {
             float horizontalInput = Input.GetAxisRaw("Horizontal");
             float verticalInput = Input.GetAxisRaw("Vertical");
+
+            if (Input.GetKeyDown(KeyCode.Space)) {
+                BodyPart newBodyPart = Instantiate(bodyPartPrefab);
+                AddBodyPart(newBodyPart);
+            }
 
             Vector2 newDirectionInput = new Vector2(horizontalInput, verticalInput);
 
