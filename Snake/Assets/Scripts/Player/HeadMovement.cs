@@ -8,6 +8,7 @@ namespace Player
     {
         [Header("[References]")]
         private Rigidbody2D playerRb;
+        private Vector2 realPosition;
 
         [Header("[Configuration]")]
         [SerializeField] private float movementSpeed;
@@ -65,9 +66,9 @@ namespace Player
             return isReverseDirection;
         }
 
-        private void MoveForward()
-        {
-            playerRb.velocity = currentMovementDirection.normalized * movementSpeed;
+        private void MoveForward() {
+            realPosition += currentMovementDirection * movementSpeed * Time.deltaTime;
+            playerRb.position = Vector2Int.RoundToInt(realPosition);
         }
     }
 }
