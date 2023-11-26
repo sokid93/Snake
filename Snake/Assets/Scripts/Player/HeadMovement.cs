@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Player
 {
-    public class HeadMovement : MonoBehaviour
+    public class HeadMovement : BodyPart
     {
         [Header("[References]")]
         private Rigidbody2D playerRb;
@@ -68,7 +68,15 @@ namespace Player
 
         private void MoveForward() {
             realPosition += currentMovementDirection * movementSpeed * Time.deltaTime;
-            playerRb.position = Vector2Int.RoundToInt(realPosition);
+            MovePosition(Vector2Int.RoundToInt(realPosition));
+        }
+
+        protected override void AddBodyPart(BodyPart other) {
+            nextBodyPart = other;
+        }
+
+        public override void MovePosition(Vector2 newPosition) {
+            playerRb.position = newPosition;
         }
     }
 }
