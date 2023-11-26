@@ -25,6 +25,7 @@ namespace Player
         {
             Read_MovementInput();
             MoveForward();
+            BodyPartCreationTest();
         }
 
         private void Read_MovementInput()
@@ -32,15 +33,17 @@ namespace Player
             float horizontalInput = Input.GetAxisRaw("Horizontal");
             float verticalInput = Input.GetAxisRaw("Vertical");
 
-            if (Input.GetKeyDown(KeyCode.Space)) {
-                BodyPart newBodyPart = Instantiate(bodyPartPrefab);
-                AddBodyPart(newBodyPart);
-            }
-
             Vector2 newDirectionInput = new Vector2(horizontalInput, verticalInput);
 
             if(Check_ValidDirection(newDirectionInput))
                 currentMovementDirection = newDirectionInput;
+        }
+
+        void BodyPartCreationTest() {
+            if (!Input.GetKeyDown(KeyCode.Space)) return;
+            
+            BodyPart newBodyPart = Instantiate(bodyPartPrefab);
+            AddBodyPart(newBodyPart);
         }
 
 
