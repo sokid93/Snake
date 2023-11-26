@@ -10,7 +10,7 @@ namespace Player {
 		private BodyPart nextBodyPart;
 
 		protected void GetReferences() {
-			rb.GetComponent<Rigidbody2D>();
+			rb = GetComponent<Rigidbody2D>();
 		}
 
 		protected void AddBodyPart(BodyPart other) {
