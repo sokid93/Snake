@@ -50,13 +50,13 @@ namespace Player
 
         private bool Check_ValidDirection(Vector2 newDirectionInput)
         {
-            bool isValid = newDirectionInput != Vector2.zero && !Check_DiagonalInput(newDirectionInput) && !Check_ReverseDirection(newDirectionInput);
+            bool isValid = newDirectionInput != Vector2.zero && !newDirectionInput.IsDiagonal() && !Check_ReverseDirection(newDirectionInput);
 
             return isValid;
         }
 
 
-        private bool Check_DiagonalInput(Vector2 newDirectionInput)
+        private static bool Check_DiagonalInput(Vector2 newDirectionInput)
         {
             bool isDiagonal = newDirectionInput.x != 0 && newDirectionInput.y != 0;
 
@@ -73,6 +73,13 @@ namespace Player
         private void MoveForward() {
             realPosition += currentMovementDirection * movementSpeed * Time.deltaTime;
             MovePosition(Vector2Int.RoundToInt(realPosition));
+        }
+    }
+    static class directions
+    {
+        public static bool IsDiagonal(this Vector2 newDirectionInput)
+        {
+            return newDirectionInput.x != 0 && newDirectionInput.y != 0;
         }
     }
 }
