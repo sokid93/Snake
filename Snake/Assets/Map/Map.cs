@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class Map : MonoBehaviour
 {
-    public SnakeGrid grid = new SnakeGrid();
     [SerializeField] GameObject tile;
     int verticalSize;
     int horizontalSize;
 
     void Start()
     {
-        grid.InitializeMap(verticalSize, horizontalSize);
+        
     }
 
     public void InstantiateMapTiles()
